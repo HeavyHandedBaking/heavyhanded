@@ -673,20 +673,20 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
 </footer>
 
 <!-- ADMIN MODAL -->
-<div class="modal-overlay open" id="admin-overlay">
+<div class="modal-overlay" id="admin-overlay">
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">Admin Panel</span>
       <button class="modal-close" onclick="closeAdmin()">✕</button>
     </div>
     <div class="modal-body">
-      <div class="admin-login" id="admin-login" data-protonpass-form="" style="display: none;">
+      <div class="admin-login" id="admin-login">
         <h3>Enter admin password</h3>
         <div class="field" style=""><label>Password</label><input type="password" id="admin-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Password" style=""></div>
         <button class="admin-btn" onclick="checkPw()">Unlock ✦</button>
         <p class="admin-err" id="admin-err"></p>
       </div>
-      <div class="admin-panel visible" id="admin-panel" data-protonpass-form="">
+      <div class="admin-panel" id="admin-panel" data-protonpass-form="">
         <div>
           <p class="admin-section-title">Sale Info</p>
           <div style="display:flex;flex-direction:column;gap:0.75rem">
@@ -1150,24 +1150,24 @@ function saveAll() {
   data.satOption=document.getElementById('admin-sat').value;
   data.sunOption=document.getElementById('admin-sun').value;
 
-  // Get the current page HTML and replace the DEFAULT data block with updated data
-  const currentHTML = document.documentElement.outerHTML;
-  const newDefault = `const DEFAULT = ${JSON.stringify(data, null, 2)};`;
-  const updated = currentHTML.replace(/const DEFAULT = \{[\s\S]*?\};\n\n\/\/ Always use DEFAULT/, newDefault + '\n\n// Always use DEFAULT');
-
-  const blob = new Blob([updated], {type: 'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'index.html';
-  a.click();
-
-  // Also update live preview
+  // Close admin and update live preview FIRST before taking the snapshot
+  closeAdmin();
   renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
   updateStatusBar();
   document.getElementById('hero-dates').textContent = data.satOption + ' + ' + data.sunOption;
 
-  closeAdmin();
-  alert('✦ index.html downloaded! Upload it to GitHub to publish your changes to everyone.');
+  // Wait for panel to fully close, then snapshot
+  setTimeout(() => {
+    const newDefault = `const DEFAULT = ${JSON.stringify(data, null, 2)};`;
+    const currentHTML = document.documentElement.outerHTML;
+    const updated = currentHTML.replace(/const DEFAULT = \{[\s\S]*?\};\n\n\/\/ Always use DEFAULT/, newDefault + '\n\n// Always use DEFAULT');
+    const blob = new Blob([updated], {type: 'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+    alert('✦ index.html downloaded! Upload it to GitHub to publish your changes to everyone.');
+  }, 300);
 }
 
 function exportData() {
