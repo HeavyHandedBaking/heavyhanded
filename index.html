@@ -703,8 +703,8 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
     <div class="admin-item" draggable="true" data-index="0" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
       <span class="drag-handle" title="Drag to reorder">⠿</span>
       <input type="text" value="French Onion Focaccia" placeholder="Item name" data-i="0" data-f="name" oninput="updateItem(this)">
-      <input type="number" class="price-input" value="12" data-i="0" data-f="price" oninput="updateItem(this)">
-      <input type="number" class="stock-input" value="8" min="0" data-i="0" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="number" class="price-input" value="0" data-i="0" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="0" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
       <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="0" data-f="dietary" oninput="updateItem(this)">
       <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
         <input type="checkbox" data-i="0" data-f="sample" onchange="updateItem(this)"> Sample
@@ -716,19 +716,19 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
       <span class="drag-handle" title="Drag to reorder">⠿</span>
       <input type="text" value="Chile Relleno Quiche" placeholder="Item name" data-i="1" data-f="name" oninput="updateItem(this)">
       <input type="number" class="price-input" value="25" data-i="1" data-f="price" oninput="updateItem(this)">
-      <input type="number" class="stock-input" value="7" min="0" data-i="1" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="1" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
       <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="1" data-f="dietary" oninput="updateItem(this)">
       <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
         <input type="checkbox" data-i="1" data-f="sample" onchange="updateItem(this)"> Sample
       </label>
       <button class="admin-del" onclick="deleteItem(1)">Remove</button>
-      <input type="text" class="admin-item-desc" value="Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat, think warm and flavorful rather than spicy, about a 3 out of 10." placeholder="Description…" data-i="1" data-f="desc" oninput="updateItem(this)">
+      <input type="text" class="admin-item-desc" value="Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10." placeholder="Description…" data-i="1" data-f="desc" oninput="updateItem(this)">
     </div>
     <div class="admin-item" draggable="true" data-index="2" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
       <span class="drag-handle" title="Drag to reorder">⠿</span>
       <input type="text" value="Lemon Garlic Aioli" placeholder="Item name" data-i="2" data-f="name" oninput="updateItem(this)">
-      <input type="number" class="price-input" value="10" data-i="2" data-f="price" oninput="updateItem(this)">
-      <input type="number" class="stock-input" value="6" min="0" data-i="2" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="number" class="price-input" value="0" data-i="2" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="2" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
       <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="2" data-f="dietary" oninput="updateItem(this)">
       <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
         <input type="checkbox" data-i="2" data-f="sample" onchange="updateItem(this)"> Sample
@@ -738,27 +738,27 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
     </div>
     <div class="admin-item" draggable="true" data-index="3" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
       <span class="drag-handle" title="Drag to reorder">⠿</span>
-      <input type="text" value="Strawberry Cream Cheese Pie" placeholder="Item name" data-i="3" data-f="name" oninput="updateItem(this)">
-      <input type="number" class="price-input" value="25" data-i="3" data-f="price" oninput="updateItem(this)">
-      <input type="number" class="stock-input" value="8" min="0" data-i="3" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" value="Swedish Vanilla Cardamom Buns" placeholder="Item name" data-i="3" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="18" data-i="3" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="3" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
       <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="3" data-f="dietary" oninput="updateItem(this)">
       <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
         <input type="checkbox" data-i="3" data-f="sample" onchange="updateItem(this)"> Sample
       </label>
       <button class="admin-del" onclick="deleteItem(3)">Remove</button>
-      <input type="text" class="admin-item-desc" value="Luscious cream cheese filling topped with fresh strawberries in a buttery crust." placeholder="Description…" data-i="3" data-f="desc" oninput="updateItem(this)">
+      <input type="text" class="admin-item-desc" value="Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4." placeholder="Description…" data-i="3" data-f="desc" oninput="updateItem(this)">
     </div>
     <div class="admin-item" draggable="true" data-index="4" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
       <span class="drag-handle" title="Drag to reorder">⠿</span>
-      <input type="text" value="New Item" placeholder="Item name" data-i="4" data-f="name" oninput="updateItem(this)">
-      <input type="number" class="price-input" value="10" data-i="4" data-f="price" oninput="updateItem(this)">
+      <input type="text" value="Strawberry Cream Cheese Pie" placeholder="Item name" data-i="4" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="25" data-i="4" data-f="price" oninput="updateItem(this)">
       <input type="number" class="stock-input" value="0" min="0" data-i="4" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
       <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="4" data-f="dietary" oninput="updateItem(this)">
       <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
         <input type="checkbox" data-i="4" data-f="sample" onchange="updateItem(this)"> Sample
       </label>
       <button class="admin-del" onclick="deleteItem(4)">Remove</button>
-      <input type="text" class="admin-item-desc" value="" placeholder="Description…" data-i="4" data-f="desc" oninput="updateItem(this)">
+      <input type="text" class="admin-item-desc" value="Luscious cream cheese filling topped with fresh strawberries in a buttery crust." placeholder="Description…" data-i="4" data-f="desc" oninput="updateItem(this)">
     </div>
     <div class="admin-item" draggable="true" data-index="5" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
       <span class="drag-handle" title="Drag to reorder">⠿</span>
@@ -821,17 +821,17 @@ const DEFAULT = {
       "name": "French Onion Focaccia",
       "desc": "Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère.",
       "dietary": "",
-      "price": 12,
-      "stock": 8,
+      "price": 0,
+      "stock": 0,
       "img": "https://i.ibb.co/CKM861Z3/0-2-1763478464116.jpg",
       "sample": false
     },
     {
       "name": "Chile Relleno Quiche",
-      "desc": "Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat, think warm and flavorful rather than spicy, about a 3 out of 10.",
+      "desc": "Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10.",
       "dietary": "",
       "price": 25,
-      "stock": 7,
+      "stock": 0,
       "img": "https://i.ibb.co/93NSj8Cd/2377edd79919907fe2b6d170dba06022.jpg",
       "sample": false
     },
@@ -839,26 +839,27 @@ const DEFAULT = {
       "name": "Lemon Garlic Aioli",
       "desc": "Bright, velvety aioli with a punch of roasted garlic and fresh lemon.",
       "dietary": "",
-      "price": 10,
-      "stock": 6,
+      "price": 0,
+      "stock": 0,
       "img": "https://i.ibb.co/G31QbPLb/Lemon-Garlic-Aioli-Featured-Image1.jpg",
       "sample": false
     },
     {
-      "name": "Strawberry Cream Cheese Pie - Whole",
-      "desc": "Luscious cream cheese filling topped with fresh strawberries in a buttery crust.",
+      "name": "Swedish Vanilla Cardamom Buns",
+      "desc": "Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4.",
       "dietary": "",
-      "price": 25,
-      "stock": 8,
-      "img": "https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp",
+      "price": 18,
+      "stock": 0,
+      "img": "https://i.ibb.co/Sw4t0f5X/db2fe2ce057d91552ca96c3ed98a353b.jpg",
       "sample": false
     },
     {
-      "name": "New ItemStrawberry Cream Cheese Pie - Slice",
+      "name": "Strawberry Cream Cheese Pie",
       "desc": "Luscious cream cheese filling topped with fresh strawberries in a buttery crust.",
       "dietary": "",
-      "price": 10,
-      "stock": 8,
+      "price": 25,
+      "stock": 0,
+      "img": "https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp",
       "sample": false
     },
     {
@@ -1237,4 +1238,5 @@ window.addEventListener('hashchange', () => { if (window.location.hash === '#adm
 
 
 
-<protonpass-root-dd48 data-protonpass-role="root" data-protonpass-theme="os" popover="manual"></protonpass-root-dd48></body></html>
+
+<protonpass-root-f654 data-protonpass-role="root" data-protonpass-theme="os" popover="manual"></protonpass-root-f654></body></html>
