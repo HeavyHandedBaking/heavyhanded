@@ -400,7 +400,7 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
     <a class="nav-link" href="#menu">Menu</a>
     <a class="nav-link" href="#order">Order</a>
     <a class="nav-link" href="#archive">Past Sales</a>
-    <button class="nav-admin" onclick="openAdmin()">Admin</button>
+    <button class="nav-admin" id="nav-admin-btn" onclick="openAdmin()" style="display:none">Admin</button>
   </div>
 </nav>
 
@@ -1192,6 +1192,10 @@ function updateStatusBar() {
 renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
 updateStatusBar();
 document.getElementById('hero-dates').textContent = data.satOption + ' + ' + data.sunOption;
+
+// Open admin via URL hash — visit /#admin to access
+if (window.location.hash === '#admin') openAdmin();
+window.addEventListener('hashchange', () => { if (window.location.hash === '#admin') openAdmin(); });
 </script>
 
 <!--
