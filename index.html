@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heavy Handed — Bake Sale</title>
-<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Nunito:ital,wght@0,400;0,600;0,800;1,400&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0f0a1e;
@@ -415,18 +413,90 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
 </section>
 
 <div class="sale-status-bar" id="sale-status-bar">
-  <div class="status-pill">🟢 Orders open <strong id="pill-open"></strong></div>
-  <div class="status-pill">🔴 Orders close <strong id="pill-cutoff"></strong></div>
-  <div class="status-pill">📦 Delivery/Pickup <strong id="pill-dates"></strong></div>
+  <div class="status-pill">🟢 Orders open <strong id="pill-open">May 20 at 9am</strong></div>
+  <div class="status-pill">🔴 Orders close <strong id="pill-cutoff">May 27 at 11pm</strong></div>
+  <div class="status-pill">📦 Delivery/Pickup <strong id="pill-dates">Saturday, May 30 &amp; Sunday, May 31</strong></div>
 </div>
-<span id="hero-dates" style="display:none"></span>
+<span id="hero-dates" style="display:none">Saturday, May 30 + Sunday, May 31</span>
 
 <div class="container" id="menu">
   <div class="section-header">
     <h2 class="section-title">✦ This Week's Menu</h2>
-    <span class="section-note" id="sale-dates"></span>
+    <span class="section-note" id="sale-dates">May 30–31, 2026</span>
   </div>
-  <div class="menu-grid" id="menu-grid"></div>
+  <div class="menu-grid" id="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/CKM861Z3/0-2-1763478464116.jpg" alt="French Onion Focaccia">
+        
+      </div>
+      <div class="menu-card-name">French Onion Focaccia</div>
+      <div class="menu-card-desc">Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$0</span>
+        <div class="badges"></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/93NSj8Cd/2377edd79919907fe2b6d170dba06022.jpg" alt="Chile Relleno Quiche">
+        
+      </div>
+      <div class="menu-card-name">Chile Relleno Quiche</div>
+      <div class="menu-card-desc">Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$25</span>
+        <div class="badges"></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/G31QbPLb/Lemon-Garlic-Aioli-Featured-Image1.jpg" alt="Lemon Garlic Aioli">
+        
+      </div>
+      <div class="menu-card-name">Lemon Garlic Aioli</div>
+      <div class="menu-card-desc">Bright, velvety aioli with a punch of roasted garlic and fresh lemon.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$0</span>
+        <div class="badges"></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/Sw4t0f5X/db2fe2ce057d91552ca96c3ed98a353b.jpg" alt="Swedish Vanilla Cardamom Buns">
+        
+      </div>
+      <div class="menu-card-name">Swedish Vanilla Cardamom Buns</div>
+      <div class="menu-card-desc">Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$18</span>
+        <div class="badges"></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp" alt="Strawberry Cream Cheese Pie">
+        
+      </div>
+      <div class="menu-card-name">Strawberry Cream Cheese Pie</div>
+      <div class="menu-card-desc">Luscious cream cheese filling topped with fresh strawberries in a buttery crust.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$25</span>
+        <div class="badges"></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="https://i.ibb.co/whvgJsG8/Vegan-Sweet-Potato-Chocolate-Cake-0152-683x1024.webp" alt="4" chocolate="" cake"="">
+        
+      </div>
+      <div class="menu-card-name">4" Chocolate Cake</div>
+      <div class="menu-card-desc">A petite, rich chocolate cake frosted with silky peanut butter Swiss meringue buttercream — perfect for one to two people.</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$0</span>
+        <div class="badges"></div>
+      </div>
+    </div></div>
 </div>
 
 <div class="divider"></div>
@@ -453,13 +523,13 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
       </div>
     </div>
 
-    <div class="order-form-wrap">
+    <div class="order-form-wrap" data-protonpass-form="">
       <div class="form-row">
-        <div class="field"><label>Your name *</label><input type="text" id="f-name" placeholder="Full name" /></div>
-        <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com" /></div>
+        <div class="field"><label>Your name *</label><input type="text" id="f-name" placeholder="Full name"></div>
+        <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com"></div>
       </div>
       <div class="form-row">
-        <div class="field"><label>Phone (optional)</label><input type="tel" id="f-phone" placeholder="(206) 555-0100" /></div>
+        <div class="field"><label>Phone (optional)</label><input type="tel" id="f-phone" placeholder="(206) 555-0100"></div>
       </div>
 
       <!-- PICKUP OR DELIVERY -->
@@ -482,18 +552,92 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
       <!-- DAY SELECTION -->
       <div class="field">
         <label>Which day? *</label>
-        <select id="f-day"><option value="">— Select a day —</option></select>
+        <select id="f-day"><option value="">— Select a day —</option>
+     <option value="Saturday, May 30">Saturday, May 30</option>
+     <option value="Sunday, May 31">Sunday, May 31</option></select>
       </div>
 
       <!-- ADDRESS (delivery only) -->
       <div class="field" id="address-field" style="display:none">
         <label>Delivery address *</label>
-        <input type="text" id="f-address" placeholder="Your full delivery address" />
+        <input type="text" id="f-address" placeholder="Your full delivery address">
       </div>
 
       <div>
         <p class="items-label">Choose your items</p>
-        <div class="order-items" id="order-items"></div>
+        <div class="order-items" id="order-items">
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">French Onion Focaccia</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$0</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(0,-1)">−</button>
+        <span class="qty-val" id="qty-0">0</span>
+        <button class="qty-btn" onclick="changeQty(0,1)">+</button>
+      </div>
+    </div>
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">Chile Relleno Quiche</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$25</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(1,-1)">−</button>
+        <span class="qty-val" id="qty-1">0</span>
+        <button class="qty-btn" onclick="changeQty(1,1)">+</button>
+      </div>
+    </div>
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">Lemon Garlic Aioli</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$0</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(2,-1)">−</button>
+        <span class="qty-val" id="qty-2">0</span>
+        <button class="qty-btn" onclick="changeQty(2,1)">+</button>
+      </div>
+    </div>
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">Swedish Vanilla Cardamom Buns</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$18</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(3,-1)">−</button>
+        <span class="qty-val" id="qty-3">0</span>
+        <button class="qty-btn" onclick="changeQty(3,1)">+</button>
+      </div>
+    </div>
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">Strawberry Cream Cheese Pie</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$25</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(4,-1)">−</button>
+        <span class="qty-val" id="qty-4">0</span>
+        <button class="qty-btn" onclick="changeQty(4,1)">+</button>
+      </div>
+    </div>
+    <div class="order-item">
+      <div class="order-item-info">
+        <div class="order-item-name">4" Chocolate Cake</div>
+        <div class="order-item-sub"></div>
+      </div>
+      <div class="order-item-price">$0</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(5,-1)">−</button>
+        <span class="qty-val" id="qty-5">0</span>
+        <button class="qty-btn" onclick="changeQty(5,1)">+</button>
+      </div>
+    </div></div>
       </div>
 
       <!-- RUNNING TOTAL -->
@@ -521,7 +665,7 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
   <div class="section-header">
     <h2 class="section-title">✦ Past Sales</h2>
   </div>
-  <div class="archive-stack" id="archive-list"></div>
+  <div class="archive-stack" id="archive-list"><div class="archive-card"><span style="color:var(--text-faint);font-size:13px">No past sales yet — check back soon!</span></div></div>
 </div>
 
 <footer>
@@ -529,33 +673,105 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
 </footer>
 
 <!-- ADMIN MODAL -->
-<div class="modal-overlay" id="admin-overlay">
+<div class="modal-overlay open" id="admin-overlay">
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">Admin Panel</span>
       <button class="modal-close" onclick="closeAdmin()">✕</button>
     </div>
     <div class="modal-body">
-      <div class="admin-login" id="admin-login">
+      <div class="admin-login" id="admin-login" data-protonpass-form="" style="display: none;">
         <h3>Enter admin password</h3>
-        <div class="field"><label>Password</label><input type="password" id="admin-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Password" /></div>
+        <div class="field" style=""><label>Password</label><input type="password" id="admin-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Password" style=""></div>
         <button class="admin-btn" onclick="checkPw()">Unlock ✦</button>
         <p class="admin-err" id="admin-err"></p>
       </div>
-      <div class="admin-panel" id="admin-panel">
+      <div class="admin-panel visible" id="admin-panel" data-protonpass-form="">
         <div>
           <p class="admin-section-title">Sale Info</p>
           <div style="display:flex;flex-direction:column;gap:0.75rem">
-            <div class="field"><label>Sale dates label</label><input type="text" id="admin-sale-label" /></div>
-            <div class="field"><label>Orders open (e.g. "May 18 at 6pm")</label><input type="text" id="admin-sale-open" /></div>
-            <div class="field"><label>Order cutoff (e.g. "May 29 at 11pm")</label><input type="text" id="admin-sale-cutoff" /></div>
-            <div class="field"><label>Saturday option text</label><input type="text" id="admin-sat" /></div>
-            <div class="field"><label>Sunday option text</label><input type="text" id="admin-sun" /></div>
+            <div class="field"><label>Sale dates label</label><input type="text" id="admin-sale-label"></div>
+            <div class="field"><label>Orders open (e.g. "May 18 at 6pm")</label><input type="text" id="admin-sale-open"></div>
+            <div class="field"><label>Order cutoff (e.g. "May 29 at 11pm")</label><input type="text" id="admin-sale-cutoff"></div>
+            <div class="field"><label>Saturday option text</label><input type="text" id="admin-sat"></div>
+            <div class="field"><label>Sunday option text</label><input type="text" id="admin-sun"></div>
           </div>
         </div>
         <div>
           <p class="admin-section-title">Menu Items</p>
-          <div class="admin-items" id="admin-items-list"></div>
+          <div class="admin-items" id="admin-items-list">
+    <div class="admin-item" draggable="true" data-index="0" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="French Onion Focaccia" placeholder="Item name" data-i="0" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="0" data-i="0" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="0" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="0" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="0" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(0)">Remove</button>
+      <input type="text" class="admin-item-desc" value="Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère." placeholder="Description…" data-i="0" data-f="desc" oninput="updateItem(this)">
+    </div>
+    <div class="admin-item" draggable="true" data-index="1" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="Chile Relleno Quiche" placeholder="Item name" data-i="1" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="25" data-i="1" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="1" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="1" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="1" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(1)">Remove</button>
+      <input type="text" class="admin-item-desc" value="Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10." placeholder="Description…" data-i="1" data-f="desc" oninput="updateItem(this)">
+    </div>
+    <div class="admin-item" draggable="true" data-index="2" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="Lemon Garlic Aioli" placeholder="Item name" data-i="2" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="0" data-i="2" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="2" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="2" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="2" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(2)">Remove</button>
+      <input type="text" class="admin-item-desc" value="Bright, velvety aioli with a punch of roasted garlic and fresh lemon." placeholder="Description…" data-i="2" data-f="desc" oninput="updateItem(this)">
+    </div>
+    <div class="admin-item" draggable="true" data-index="3" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="Swedish Vanilla Cardamom Buns" placeholder="Item name" data-i="3" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="18" data-i="3" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="3" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="3" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="3" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(3)">Remove</button>
+      <input type="text" class="admin-item-desc" value="Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4." placeholder="Description…" data-i="3" data-f="desc" oninput="updateItem(this)">
+    </div>
+    <div class="admin-item" draggable="true" data-index="4" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="Strawberry Cream Cheese Pie" placeholder="Item name" data-i="4" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="25" data-i="4" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="4" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="4" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="4" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(4)">Remove</button>
+      <input type="text" class="admin-item-desc" value="Luscious cream cheese filling topped with fresh strawberries in a buttery crust." placeholder="Description…" data-i="4" data-f="desc" oninput="updateItem(this)">
+    </div>
+    <div class="admin-item" draggable="true" data-index="5" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="4" chocolate="" cake"="" placeholder="Item name" data-i="5" data-f="name" oninput="updateItem(this)">
+      <input type="number" class="price-input" value="0" data-i="5" data-f="price" oninput="updateItem(this)">
+      <input type="number" class="stock-input" value="0" min="0" data-i="5" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)">
+      <input type="text" class="dietary-input" value="" placeholder="GF, Vegan…" data-i="5" data-f="dietary" oninput="updateItem(this)">
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" data-i="5" data-f="sample" onchange="updateItem(this)"> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(5)">Remove</button>
+      <input type="text" class="admin-item-desc" value="A petite, rich chocolate cake frosted with silky peanut butter Swiss meringue buttercream — perfect for one to two people." placeholder="Description…" data-i="5" data-f="desc" oninput="updateItem(this)">
+    </div></div>
           <div style="font-size:11px;color:var(--text-faint);margin-top:8px">Stock = max orders available. Set to 0 for unlimited.</div>
           <br>
           <button class="admin-btn secondary" onclick="addAdminItem()">+ Add Item</button>
@@ -563,10 +779,10 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
         <div>
           <p class="admin-section-title">Log a Past Sale</p>
           <div class="archive-form">
-            <div class="field"><label>Date label</label><input type="text" id="arc-date" placeholder="May 30–31, 2026" /></div>
-            <div class="field"><label>Sale name</label><input type="text" id="arc-name" placeholder="Sale #1" /></div>
-            <div class="field"><label>Items (comma-separated)</label><input type="text" id="arc-items" placeholder="Brownies, Tiramisu…" /></div>
-            <div class="field"><label>Amount raised ($)</label><input type="number" id="arc-raised" placeholder="300" /></div>
+            <div class="field"><label>Date label</label><input type="text" id="arc-date" placeholder="May 30–31, 2026"></div>
+            <div class="field"><label>Sale name</label><input type="text" id="arc-name" placeholder="Sale #1"></div>
+            <div class="field"><label>Items (comma-separated)</label><input type="text" id="arc-items" placeholder="Brownies, Tiramisu…"></div>
+            <div class="field"><label>Amount raised ($)</label><input type="number" id="arc-raised" placeholder="300"></div>
             <button class="admin-btn secondary" onclick="addArchive()">Add to Archive</button>
           </div>
         </div>
@@ -577,7 +793,7 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
           <button class="admin-btn secondary" onclick="exportData()">Export JSON</button>
           &nbsp;
           <button class="admin-btn secondary" onclick="document.getElementById('import-file').click()">Import JSON</button>
-          <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)" />
+          <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
         </div>
       </div>
     </div>
@@ -595,20 +811,69 @@ const ADMIN_PASSWORD      = 'heavyhanded2025'; // change me!
 // ─────────────────────────────────────────────────────
 
 const DEFAULT = {
-  saleLabel: 'May 30–31, 2026',
-  satOption: 'Saturday, May 30',
-  sunOption: 'Sunday, May 31',
-  saleOpen: 'May 18 at 6pm',
-  saleCutoff: 'May 29 at 11pm',
-  items: [
-    { name:'French Onion Focaccia', desc:'Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/CKM861Z3/0-2-1763478464116.jpg', sample:false },
-    { name:'Chile Relleno Quiche', desc:'Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10.', dietary:'', price:25, stock:0, img:'https://i.ibb.co/93NSj8Cd/2377edd79919907fe2b6d170dba06022.jpg', sample:false },
-    { name:'Lemon Garlic Aioli', desc:'Bright, velvety aioli with a punch of roasted garlic and fresh lemon.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/G31QbPLb/Lemon-Garlic-Aioli-Featured-Image1.jpg', sample:false },
-    { name:'Swedish Vanilla Cardamom Buns', desc:'Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4.', dietary:'', price:18, stock:0, img:'https://i.ibb.co/Sw4t0f5X/db2fe2ce057d91552ca96c3ed98a353b.jpg', sample:false },
-    { name:'Strawberry Cream Cheese Pie', desc:'Luscious cream cheese filling topped with fresh strawberries in a buttery crust.', dietary:'', price:25, stock:0, img:'https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp', sample:false },
-    { name:'4" Chocolate Cake', desc:'A petite, rich chocolate cake frosted with silky peanut butter Swiss meringue buttercream — perfect for one to two people.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/whvgJsG8/Vegan-Sweet-Potato-Chocolate-Cake-0152-683x1024.webp', sample:false },
+  "saleLabel": "May 20–31, 2026",
+  "satOption": "Saturday, May 30",
+  "sunOption": "Sunday, May 31",
+  "saleOpen": "May 20 at 9am",
+  "saleCutoff": "May 27 at 11pm",
+  "items": [
+    {
+      "name": "French Onion Focaccia",
+      "desc": "Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère.",
+      "dietary": "",
+      "price": 0,
+      "stock": 0,
+      "img": "https://i.ibb.co/CKM861Z3/0-2-1763478464116.jpg",
+      "sample": false
+    },
+    {
+      "name": "Chile Relleno Quiche",
+      "desc": "Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10.",
+      "dietary": "",
+      "price": 25,
+      "stock": 0,
+      "img": "https://i.ibb.co/93NSj8Cd/2377edd79919907fe2b6d170dba06022.jpg",
+      "sample": false
+    },
+    {
+      "name": "Lemon Garlic Aioli",
+      "desc": "Bright, velvety aioli with a punch of roasted garlic and fresh lemon.",
+      "dietary": "",
+      "price": 0,
+      "stock": 0,
+      "img": "https://i.ibb.co/G31QbPLb/Lemon-Garlic-Aioli-Featured-Image1.jpg",
+      "sample": false
+    },
+    {
+      "name": "Swedish Vanilla Cardamom Buns",
+      "desc": "Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4.",
+      "dietary": "",
+      "price": 18,
+      "stock": 0,
+      "img": "https://i.ibb.co/Sw4t0f5X/db2fe2ce057d91552ca96c3ed98a353b.jpg",
+      "sample": false
+    },
+    {
+      "name": "Strawberry Cream Cheese Pie",
+      "desc": "Luscious cream cheese filling topped with fresh strawberries in a buttery crust.",
+      "dietary": "",
+      "price": 25,
+      "stock": 0,
+      "img": "https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp",
+      "sample": false
+    },
+    {
+      "name": "4\" Chocolate Cake",
+      "desc": "A petite, rich chocolate cake frosted with silky peanut butter Swiss meringue buttercream — perfect for one to two people.",
+      "dietary": "",
+      "price": 0,
+      "stock": 0,
+      "img": "https://i.ibb.co/whvgJsG8/Vegan-Sweet-Potato-Chocolate-Cake-0152-683x1024.webp",
+      "sample": false
+    }
   ],
-  archive: []
+  "archive": [],
+  "_version": "v2-may30-2026"
 };
 
 // Always use DEFAULT as the base, then merge any saved admin overrides
@@ -966,5 +1231,6 @@ document.getElementById('hero-dates').textContent = data.satOption + ' + ' + dat
 
 ════════════════════════════════════════════════════════
 -->
-</body>
-</html>
+
+
+<protonpass-root-5f67 data-protonpass-role="root" data-protonpass-theme="os" popover="manual"></protonpass-root-5f67></body></html>
