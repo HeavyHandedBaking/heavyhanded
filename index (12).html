@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Heavy Handed — Bake Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0f0a1e;
+  --surface: #1a1035;
+  --surface2: #231848;
+  --pink: #ff71ce;
+  --pink-dark: #c4449e;
+  --cyan: #01cdfe;
+  --cyan-dark: #0099cc;
+  --yellow: #fffb96;
+  --purple: #b967ff;
+  --purple-dark: #7c3aed;
+  --mint: #05ffa1;
+  --text: #f0e6ff;
+  --text-mid: #b8a8d8;
+  --text-faint: #6b5a8a;
+  --border: rgba(185,103,255,0.2);
+  --border-mid: rgba(185,103,255,0.4);
+  --glow-pink: 0 0 20px rgba(255,113,206,0.4);
+  --glow-cyan: 0 0 20px rgba(1,205,254,0.4);
+  --glow-purple: 0 0 20px rgba(185,103,255,0.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* GRID BG */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(185,103,255,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(185,103,255,0.07) 1px,transparent 1px);
+  background-size:40px 40px;
+  perspective:500px;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(15,10,30,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:56px;
+}
+.nav-brand{
+  font-family:'Righteous',sans-serif;
+  font-size:20px;letter-spacing:0.08em;
+  background:linear-gradient(90deg,var(--pink),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;text-decoration:none;
+}
+.nav-right{display:flex;gap:1.5rem;align-items:center}
+.nav-link{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--pink)}
+.nav-admin{
+  font-size:11px;padding:5px 14px;
+  border:1px solid var(--pink);border-radius:20px;
+  cursor:pointer;background:transparent;color:var(--pink);
+  font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:0.06em;
+  transition:all 0.2s;
+}
+.nav-admin:hover{background:var(--pink);color:var(--bg);}
+
+/* HERO */
+.hero{
+  position:relative;z-index:1;
+  padding:5rem 2rem 4.5rem;text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(255,113,206,0.15) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 50%,rgba(1,205,254,0.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 50% 0%,rgba(185,103,255,0.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:11px;font-weight:800;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--cyan);
+  margin-bottom:1rem;position:relative;
+}
+.hero h1{
+  font-family:'Righteous',sans-serif;
+  font-size:clamp(3rem,10vw,6.5rem);
+  letter-spacing:0.06em;line-height:1;
+  margin-bottom:0.25rem;position:relative;
+  background:linear-gradient(135deg,var(--pink) 0%,var(--purple) 50%,var(--cyan) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(255,113,206,0.5));
+  animation:fadeUp 0.7s ease both;
+}
+.hero-sub{
+  font-family:'Righteous',sans-serif;
+  font-size:clamp(1.2rem,3vw,2rem);
+  letter-spacing:0.12em;color:var(--yellow);
+  margin-bottom:1.5rem;position:relative;
+  filter:drop-shadow(0 0 10px rgba(255,251,150,0.5));
+  animation:fadeUp 0.7s 0.1s ease both;
+}
+.hero-desc{
+  font-size:15px;color:var(--text-mid);
+  max-width:460px;margin:0 auto 2.5rem;
+  line-height:1.8;position:relative;
+  animation:fadeUp 0.7s 0.2s ease both;
+}
+.hero-pills{display:inline-flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;position:relative;animation:fadeUp 0.7s 0.3s ease both}
+.hero-pill{
+  background:rgba(185,103,255,0.15);
+  border:1px solid var(--border-mid);
+  border-radius:20px;padding:6px 16px;
+  font-size:12px;font-weight:600;color:var(--text-mid);letter-spacing:0.04em;
+}
+.hero-pill strong{color:var(--yellow)}
+.pill-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-size:10px;font-weight:800;margin-right:4px;flex-shrink:0}
+
+/* STATUS BAR */
+.sale-status-bar{
+  display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;
+  padding:1rem 2rem;
+  background:rgba(185,103,255,0.08);
+  border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.status-pill{
+  background:rgba(15,10,30,0.6);
+  border:1px solid var(--border-mid);
+  border-radius:20px;padding:6px 16px;
+  font-size:12px;font-weight:600;color:var(--text-mid);
+  letter-spacing:0.03em;
+  backdrop-filter:blur(8px);
+}
+.status-pill strong{color:var(--yellow)}
+
+
+.container{max-width:940px;margin:0 auto;padding:4rem 2rem;position:relative;z-index:1}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
+.section-title{
+  font-family:'Righteous',sans-serif;
+  font-size:1.8rem;letter-spacing:0.08em;
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.section-note{font-size:12px;color:var(--text-faint);letter-spacing:0.04em}
+
+/* DIVIDER */
+.divider{
+  height:2px;margin:0;
+  background:linear-gradient(90deg,transparent,var(--pink),var(--purple),var(--cyan),transparent);
+  opacity:0.5;position:relative;z-index:1;
+}
+
+/* MENU GRID */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1.25rem}
+.menu-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;padding:1.25rem;
+  position:relative;overflow:hidden;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.menu-card::before{
+  content:'';position:absolute;inset:0;border-radius:16px;
+  background:linear-gradient(135deg,rgba(255,113,206,0.05),rgba(1,205,254,0.05));
+  opacity:0;transition:opacity 0.2s;pointer-events:none;
+}
+.menu-card:hover{transform:translateY(-4px);box-shadow:var(--glow-purple);}
+.menu-card:hover::before{opacity:1}
+.menu-card-img{
+  width:100%;aspect-ratio:4/3;
+  background:var(--surface2);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;margin-bottom:1rem;
+  overflow:hidden;position:relative;
+  border:1px solid var(--border);
+}
+.menu-card-img img{width:100%;height:100%;object-fit:cover}
+.sample-tag{
+  position:absolute;bottom:6px;right:6px;
+  background:rgba(15,10,30,0.8);
+  border:1px solid var(--purple);
+  color:var(--purple);
+  font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:2px 8px;border-radius:4px;
+}
+.menu-card-name{
+  font-family:'Righteous',sans-serif;
+  font-size:1rem;letter-spacing:0.04em;
+  margin-bottom:5px;line-height:1.3;color:var(--text);
+}
+.menu-card-desc{font-size:12.5px;color:var(--text-mid);line-height:1.65;margin-bottom:0.85rem}
+.menu-card-footer{display:flex;align-items:center;justify-content:space-between}
+.menu-card-price{
+  font-family:'Righteous',sans-serif;
+  font-size:1.1rem;color:var(--yellow);
+  filter:drop-shadow(0 0 6px rgba(255,251,150,0.5));
+}
+.badges{display:flex;gap:4px;flex-wrap:wrap}
+.badge{font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px}
+.badge-gf{background:rgba(5,255,161,0.15);color:var(--mint);border:1px solid rgba(5,255,161,0.3)}
+.badge-vegan{background:rgba(1,205,254,0.15);color:var(--cyan);border:1px solid rgba(1,205,254,0.3)}
+
+/* ORDER SECTION */
+.order-wrap{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.order-intro{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--border)}
+@media(max-width:600px){.order-intro{grid-template-columns:1fr}}
+.order-steps-side{padding:2rem}
+.order-steps-label{font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:1.25rem}
+.order-steps{display:flex;flex-direction:column;gap:1rem}
+.order-step{display:flex;gap:0.85rem;align-items:flex-start}
+.step-num{
+  width:24px;height:24px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--glow-pink);
+}
+.step-text{font-size:13px;color:var(--text-mid);line-height:1.5;padding-top:3px}
+.venmo-side{
+  padding:2rem;
+  background:linear-gradient(135deg,rgba(255,113,206,0.1),rgba(185,103,255,0.15));
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media(max-width:600px){.venmo-side{border-left:none;border-top:1px solid var(--border)}}
+.venmo-label{font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--pink);margin-bottom:0.5rem;opacity:0.8}
+.venmo-handle{
+  font-family:'Righteous',sans-serif;
+  font-size:2rem;letter-spacing:0.08em;
+  background:linear-gradient(90deg,var(--pink),var(--yellow));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 12px rgba(255,113,206,0.6));
+}
+.venmo-note{font-size:12px;color:var(--text-faint);margin-top:0.65rem;line-height:1.6}
+
+/* FULFILLMENT BUTTONS */
+.fulfillment-btns{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fulfillment-btn{
+  background:var(--surface2);border:2px solid var(--border);border-radius:12px;
+  padding:1.25rem 1rem;cursor:pointer;transition:all 0.2s;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  font-family:'Nunito',sans-serif;
+}
+.fulfillment-btn:hover{border-color:var(--purple);background:rgba(185,103,255,0.08)}
+.fulfillment-btn.active{
+  border-color:var(--pink);
+  background:rgba(255,113,206,0.1);
+  box-shadow:var(--glow-pink);
+}
+.fulfillment-icon{font-size:1.75rem;line-height:1}
+.fulfillment-label{font-size:15px;font-weight:800;color:var(--text);letter-spacing:0.04em}
+.fulfillment-sub{font-size:11px;color:var(--text-faint);font-weight:600}
+.fulfillment-btn.active .fulfillment-label{color:var(--pink)}
+
+
+.order-form-wrap{padding:2rem;display:flex;flex-direction:column;gap:1.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:10px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-faint)}
+.field input,.field select,.field textarea{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px 14px;
+  font-family:'Nunito',sans-serif;font-size:14px;color:var(--text);
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;width:100%;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--purple);box-shadow:0 0 0 3px rgba(185,103,255,0.15);
+}
+.field select option{background:var(--surface2)}
+.field textarea{resize:vertical;min-height:80px}
+
+.items-label{font-size:10px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.75rem}
+.order-items{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.order-item{display:flex;align-items:center;gap:1rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);transition:background 0.15s}
+.order-item:last-child{border-bottom:none}
+.order-item:hover{background:rgba(185,103,255,0.08)}
+.order-item-info{flex:1}
+.order-item-name{font-size:14px;font-weight:700;color:var(--text)}
+.order-item-sub{font-size:11px;color:var(--text-faint);margin-top:2px}
+.order-item-price{font-size:13px;font-weight:700;color:var(--yellow);min-width:36px;text-align:right}
+.qty-ctrl{display:flex;align-items:center;gap:8px}
+.qty-btn{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--border-mid);
+  background:var(--surface);color:var(--text);
+  font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.15s;line-height:1;font-family:'Nunito',sans-serif;
+}
+.qty-btn:hover{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:var(--glow-pink)}
+.qty-val{font-size:14px;font-weight:800;min-width:20px;text-align:center;color:var(--text)}
+
+/* RUNNING TOTAL */
+.running-total{
+  background:linear-gradient(135deg,rgba(185,103,255,0.15),rgba(1,205,254,0.1));
+  border:1px solid var(--border-mid);
+  border-radius:10px;padding:1rem 1.25rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.running-total-label{font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-mid)}
+.running-total-items{font-size:12px;color:var(--text-faint);margin-top:2px}
+.running-total-amount{
+  font-family:'Righteous',sans-serif;
+  font-size:2rem;letter-spacing:0.06em;
+  background:linear-gradient(90deg,var(--yellow),var(--mint));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 10px rgba(255,251,150,0.5));
+  transition:all 0.2s;
+}
+.running-total-note{font-size:11px;color:var(--text-faint);margin-top:4px}
+
+.submit-btn{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;border:none;border-radius:30px;
+  padding:14px 36px;
+  font-family:'Righteous',sans-serif;
+  font-size:18px;letter-spacing:0.1em;
+  cursor:pointer;transition:all 0.2s;
+  align-self:flex-start;
+  box-shadow:var(--glow-pink);
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(255,113,206,0.6)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.form-status{padding:1rem;font-size:13px;line-height:1.6;display:none;border-radius:10px;margin-top:0.5rem;font-weight:600}
+.form-status.success{background:rgba(5,255,161,0.1);color:var(--mint);border:1px solid rgba(5,255,161,0.3)}
+.form-status.error{background:rgba(255,113,206,0.1);color:var(--pink);border:1px solid rgba(255,113,206,0.3)}
+
+/* ARCHIVE */
+.archive-stack{display:flex;flex-direction:column;gap:1px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.archive-card{background:var(--surface);padding:1.25rem 1.5rem;display:flex;gap:1.5rem;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.archive-card:last-child{border-bottom:none}
+.archive-date{font-size:10px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);min-width:100px;flex-shrink:0}
+.archive-info{flex:1}
+.archive-name{font-family:'Righteous',sans-serif;font-size:1rem;letter-spacing:0.04em;margin-bottom:3px;color:var(--text)}
+.archive-items-list{font-size:12px;color:var(--text-mid);line-height:1.6}
+.archive-raised{font-size:13px;font-weight:800;color:var(--mint);white-space:nowrap;filter:drop-shadow(0 0 6px rgba(5,255,161,0.4))}
+
+/* ADMIN MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(15,10,30,0.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);width:100%;max-width:700px;max-height:90vh;overflow-y:auto;border:1px solid var(--border-mid);border-radius:20px;position:relative}
+.modal-header{background:linear-gradient(135deg,rgba(255,113,206,0.15),rgba(185,103,255,0.15));padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.modal-title{font-family:'Righteous',sans-serif;font-size:1.4rem;letter-spacing:0.1em;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.modal-close{background:none;border:none;color:var(--text-faint);font-size:20px;cursor:pointer;line-height:1;transition:color 0.2s}
+.modal-close:hover{color:var(--pink)}
+.modal-body{padding:1.5rem}
+.admin-login{display:flex;flex-direction:column;gap:1rem}
+.admin-login h3{font-family:'Righteous',sans-serif;font-size:1.1rem;letter-spacing:0.06em;color:var(--text-mid)}
+.admin-err{font-size:13px;color:var(--pink);font-weight:700}
+.admin-panel{display:none;flex-direction:column;gap:2rem}
+.admin-panel.visible{display:flex}
+.admin-section-title{font-family:'Righteous',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--purple);margin-bottom:1rem;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.admin-items{display:flex;flex-direction:column;gap:0.75rem}
+.admin-item{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;display:grid;grid-template-columns:1fr auto auto auto auto;gap:0.6rem;align-items:center}
+.admin-item-desc{grid-column:1/-1}
+.admin-item input[type=text],.admin-item input[type=number]{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--text);width:100%;outline:none}
+.admin-item input:focus{border-color:var(--purple)}
+.price-input{width:64px}
+.stock-input{width:56px}
+.dietary-input{width:110px}
+.drag-handle{font-size:18px;color:var(--text-faint);cursor:grab;padding:0 4px;flex-shrink:0;user-select:none}
+.drag-handle:active{cursor:grabbing}
+.admin-item.dragging{opacity:0.4;border-style:dashed}
+.admin-item.drag-over{border-color:var(--pink);box-shadow:0 0 0 2px rgba(255,113,206,0.3)}
+
+.sold-out-tag{font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--pink);background:rgba(255,113,206,0.1);border:1px solid rgba(255,113,206,0.3);padding:1px 7px;border-radius:4px;margin-left:6px}
+.order-item.sold-out{opacity:0.45;pointer-events:none}
+.admin-del{background:none;border:1px solid var(--border-mid);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--text-faint);cursor:pointer;transition:all 0.15s;white-space:nowrap;font-family:'Nunito',sans-serif}
+.admin-del:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+.admin-btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:20px;padding:10px 22px;font-family:'Righteous',sans-serif;font-size:15px;letter-spacing:0.08em;cursor:pointer;transition:all 0.15s;align-self:flex-start}
+.admin-btn:hover{opacity:0.85}
+.admin-btn.secondary{background:transparent;color:var(--purple);border:1px solid var(--border-mid);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.04em;padding:8px 16px;border-radius:20px}
+.admin-btn.secondary:hover{background:var(--surface2);border-color:var(--purple)}
+.archive-form{display:flex;flex-direction:column;gap:0.75rem}
+.archive-form input{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--text);width:100%;outline:none}
+.archive-form input:focus{border-color:var(--purple)}
+.admin-save-note{font-size:12px;color:var(--text-faint);margin-top:6px}
+
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:2rem;font-size:12px;letter-spacing:0.06em;color:var(--text-faint);position:relative;z-index:1}
+footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;letter-spacing:0.12em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">Heavy Handed ✦</a>
+  <div class="nav-right">
+    <a class="nav-link" href="#menu">Menu</a>
+    <a class="nav-link" href="#order">Order</a>
+    <a class="nav-link" href="#archive">Past Sales</a>
+    <button class="nav-admin" onclick="openAdmin()">Admin</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">✦ Pre-Order Bake Sale ✦</p>
+  <h1>HEAVY</h1>
+  <p class="hero-sub">HANDED</p>
+  <p class="hero-desc">Generous with butter, generous with love. Pre-order handmade treats for pick-up or delivery.</p>
+
+</section>
+
+<div class="sale-status-bar" id="sale-status-bar">
+  <div class="status-pill">🟢 Orders open <strong id="pill-open"></strong></div>
+  <div class="status-pill">🔴 Orders close <strong id="pill-cutoff"></strong></div>
+  <div class="status-pill">📦 Delivery/Pickup <strong id="pill-dates"></strong></div>
+</div>
+<span id="hero-dates" style="display:none"></span>
+
+<div class="container" id="menu">
+  <div class="section-header">
+    <h2 class="section-title">✦ This Week's Menu</h2>
+    <span class="section-note" id="sale-dates"></span>
+  </div>
+  <div class="menu-grid" id="menu-grid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ORDER -->
+<div class="container" id="order">
+  <div class="section-header">
+    <h2 class="section-title">✦ Place Your Order</h2>
+  </div>
+  <div class="order-wrap">
+    <div class="order-intro">
+      <div class="order-steps-side">
+        <p class="order-steps-label">How it works</p>
+        <div class="order-steps">
+          <div class="order-step"><div class="step-num">1</div><div class="step-text">Pick your items, choose pick up or delivery, and select a day</div></div>
+          <div class="order-step"><div class="step-num">2</div><div class="step-text">Send your total to <strong>@johnniecakes</strong> on Venmo — include your name in the memo</div></div>
+          <div class="order-step"><div class="step-num">3</div><div class="step-text">You'll get an email confirmation with your pickup window</div></div>
+        </div>
+      </div>
+      <div class="venmo-side">
+        <p class="venmo-label">Send payment via Venmo</p>
+        <p class="venmo-handle">@johnniecakes</p>
+        <p class="venmo-note">Include your name in the memo. Orders confirmed after payment is received.</p>
+      </div>
+    </div>
+
+    <div class="order-form-wrap">
+      <div class="form-row">
+        <div class="field"><label>Your name *</label><input type="text" id="f-name" placeholder="Full name" /></div>
+        <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com" /></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone (optional)</label><input type="tel" id="f-phone" placeholder="(206) 555-0100" /></div>
+      </div>
+
+      <!-- PICKUP OR DELIVERY -->
+      <div class="field">
+        <label>How would you like to receive your order? *</label>
+        <div class="fulfillment-btns">
+          <button type="button" class="fulfillment-btn active" id="btn-pickup" onclick="setFulfillment('pickup')">
+            <span class="fulfillment-icon">🧺</span>
+            <span class="fulfillment-label">Pick Up</span>
+            <span class="fulfillment-sub">Free — come grab it!</span>
+          </button>
+          <button type="button" class="fulfillment-btn" id="btn-delivery" onclick="setFulfillment('delivery')">
+            <span class="fulfillment-icon">🚗</span>
+            <span class="fulfillment-label">Delivery</span>
+            <span class="fulfillment-sub">Available if needed</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DAY SELECTION -->
+      <div class="field">
+        <label>Which day? *</label>
+        <select id="f-day"><option value="">— Select a day —</option></select>
+      </div>
+
+      <!-- ADDRESS (delivery only) -->
+      <div class="field" id="address-field" style="display:none">
+        <label>Delivery address *</label>
+        <input type="text" id="f-address" placeholder="Your full delivery address" />
+      </div>
+
+      <div>
+        <p class="items-label">Choose your items</p>
+        <div class="order-items" id="order-items"></div>
+      </div>
+
+      <!-- RUNNING TOTAL -->
+      <div class="running-total">
+        <div>
+          <div class="running-total-label">Your total</div>
+          <div class="running-total-items" id="total-items-summary">No items selected yet</div>
+          <div class="running-total-note">Send this amount to @johnniecakes on Venmo</div>
+        </div>
+        <div class="running-total-amount" id="running-total">$0</div>
+      </div>
+
+      <div class="field"><label>Notes (allergies, special requests)</label><textarea id="f-notes" placeholder="Any notes for your order..."></textarea></div>
+
+      <button class="submit-btn" id="submit-btn" onclick="submitOrder()">Submit Order ✦</button>
+      <div class="form-status" id="form-status"></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ARCHIVE -->
+<div class="container" id="archive">
+  <div class="section-header">
+    <h2 class="section-title">✦ Past Sales</h2>
+  </div>
+  <div class="archive-stack" id="archive-list"></div>
+</div>
+
+<footer>
+  <strong>HEAVY HANDED</strong> &nbsp;✦&nbsp; handmade with love &nbsp;✦&nbsp; Seattle, WA
+</footer>
+
+<!-- ADMIN MODAL -->
+<div class="modal-overlay" id="admin-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Admin Panel</span>
+      <button class="modal-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="admin-login" id="admin-login">
+        <h3>Enter admin password</h3>
+        <div class="field"><label>Password</label><input type="password" id="admin-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Password" /></div>
+        <button class="admin-btn" onclick="checkPw()">Unlock ✦</button>
+        <p class="admin-err" id="admin-err"></p>
+      </div>
+      <div class="admin-panel" id="admin-panel">
+        <div>
+          <p class="admin-section-title">Sale Info</p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem">
+            <div class="field"><label>Sale dates label</label><input type="text" id="admin-sale-label" /></div>
+            <div class="field"><label>Orders open (e.g. "May 18 at 6pm")</label><input type="text" id="admin-sale-open" /></div>
+            <div class="field"><label>Order cutoff (e.g. "May 29 at 11pm")</label><input type="text" id="admin-sale-cutoff" /></div>
+            <div class="field"><label>Saturday option text</label><input type="text" id="admin-sat" /></div>
+            <div class="field"><label>Sunday option text</label><input type="text" id="admin-sun" /></div>
+          </div>
+        </div>
+        <div>
+          <p class="admin-section-title">Menu Items</p>
+          <div class="admin-items" id="admin-items-list"></div>
+          <div style="font-size:11px;color:var(--text-faint);margin-top:8px">Stock = max orders available. Set to 0 for unlimited.</div>
+          <br>
+          <button class="admin-btn secondary" onclick="addAdminItem()">+ Add Item</button>
+        </div>
+        <div>
+          <p class="admin-section-title">Log a Past Sale</p>
+          <div class="archive-form">
+            <div class="field"><label>Date label</label><input type="text" id="arc-date" placeholder="May 30–31, 2026" /></div>
+            <div class="field"><label>Sale name</label><input type="text" id="arc-name" placeholder="Sale #1" /></div>
+            <div class="field"><label>Items (comma-separated)</label><input type="text" id="arc-items" placeholder="Brownies, Tiramisu…" /></div>
+            <div class="field"><label>Amount raised ($)</label><input type="number" id="arc-raised" placeholder="300" /></div>
+            <button class="admin-btn secondary" onclick="addArchive()">Add to Archive</button>
+          </div>
+        </div>
+        <div>
+          <button class="admin-btn" onclick="saveAll()">Save & Publish ✦</button>
+          <p class="admin-save-note">Saves to browser storage. Export JSON to back up or transfer to another device.</p>
+          <br><br>
+          <button class="admin-btn secondary" onclick="exportData()">Export JSON</button>
+          &nbsp;
+          <button class="admin-btn secondary" onclick="document.getElementById('import-file').click()">Import JSON</button>
+          <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// ── CONFIG ───────────────────────────────────────────
+const EMAILJS_PUBLIC_KEY  = 'JLpNAk1K25Kg2FU13';
+const EMAILJS_SERVICE_ID  = 'service_39cb6ou';
+const EMAILJS_TEMPLATE_ID = 'template_c3mifpg';
+const SHEETS_URL          = 'https://script.google.com/macros/s/AKfycbyMN_Y3FnhfLfcUIxlaF9eo8NaGh-cN9DYYkMIPsjBz6bjARfAKRhA4e-A7NHswcsn7/exec';
+const ADMIN_PASSWORD      = 'heavyhanded2025'; // change me!
+// ─────────────────────────────────────────────────────
+
+const DEFAULT = {
+  saleLabel: 'May 30–31, 2026',
+  satOption: 'Saturday, May 30',
+  sunOption: 'Sunday, May 31',
+  saleOpen: 'May 18 at 6pm',
+  saleCutoff: 'May 29 at 11pm',
+  items: [
+    { name:'French Onion Focaccia', desc:'Pillowy, golden focaccia topped with deeply caramelized onions and melted gruyère.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/CKM861Z3/0-2-1763478464116.jpg', sample:false },
+    { name:'Chile Relleno Quiche', desc:'Smoky roasted poblanos and creamy Monterey Jack in a rich, savory quiche. Mild heat — think warm and flavorful rather than spicy, about a 3 out of 10.', dietary:'', price:25, stock:0, img:'https://i.ibb.co/93NSj8Cd/2377edd79919907fe2b6d170dba06022.jpg', sample:false },
+    { name:'Lemon Garlic Aioli', desc:'Bright, velvety aioli with a punch of roasted garlic and fresh lemon.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/G31QbPLb/Lemon-Garlic-Aioli-Featured-Image1.jpg', sample:false },
+    { name:'Swedish Vanilla Cardamom Buns', desc:'Soft, buttery yeasted buns filled with fragrant cardamom sugar and sweet vanilla, twisted into knots and finished with a glossy simple syrup glaze. Sold in packs of 4.', dietary:'', price:18, stock:0, img:'https://i.ibb.co/Sw4t0f5X/db2fe2ce057d91552ca96c3ed98a353b.jpg', sample:false },
+    { name:'Strawberry Cream Cheese Pie', desc:'Luscious cream cheese filling topped with fresh strawberries in a buttery crust.', dietary:'', price:25, stock:0, img:'https://i.ibb.co/tTf7hh9P/Strawberry-Cream-Cheese-Pie-2.webp', sample:false },
+    { name:'4" Chocolate Cake', desc:'A petite, rich chocolate cake frosted with silky peanut butter Swiss meringue buttercream — perfect for one to two people.', dietary:'', price:0, stock:0, img:'https://i.ibb.co/whvgJsG8/Vegan-Sweet-Potato-Chocolate-Cake-0152-683x1024.webp', sample:false },
+  ],
+  archive: []
+};
+
+// Always use DEFAULT as the base, then merge any saved admin overrides
+const SAVED = JSON.parse(localStorage.getItem('hh_data') || 'null');
+const DATA_VERSION = 'v2-may30-2026'; // bump this each new sale to reset all devices
+let data = (SAVED && SAVED._version === DATA_VERSION) ? SAVED : { ...DEFAULT, _version: DATA_VERSION };
+let qtys = [];
+
+function persist() { localStorage.setItem('hh_data', JSON.stringify({ ...data, _version: DATA_VERSION })); }
+
+// ── MENU ─────────────────────────────────────────────
+function renderMenu() {
+  document.getElementById('sale-dates').textContent = data.saleLabel;
+  document.getElementById('menu-grid').innerHTML = data.items.map(it => `
+    <div class="menu-card">
+      <div class="menu-card-img">
+        ${it.img ? `<img src="${it.img}" alt="${it.name}" />` : '🍰'}
+        ${it.sample ? '<span class="sample-tag">Sample photo</span>' : ''}
+      </div>
+      <div class="menu-card-name">${it.name}</div>
+      <div class="menu-card-desc">${it.desc}</div>
+      <div class="menu-card-footer">
+        <span class="menu-card-price">$${it.price}</span>
+        <div class="badges">${badgesHtml(it.dietary)}</div>
+      </div>
+    </div>`).join('');
+}
+
+function badgesHtml(d) {
+  if (!d) return '';
+  return d.split(',').map(b => {
+    b = b.trim();
+    if (b==='GF') return '<span class="badge badge-gf">GF</span>';
+    if (b==='Vegan') return '<span class="badge badge-vegan">Vegan</span>';
+    return `<span class="badge">${b}</span>`;
+  }).join('');
+}
+
+// ── ORDER ITEMS ──────────────────────────────────────
+function renderOrderItems() {
+  qtys = new Array(data.items.length).fill(0);
+  document.getElementById('order-items').innerHTML = data.items.map((it, i) => {
+    const stock = it.stock || 0;
+    const soldOut = stock > 0 && stock === 0;
+    return `
+    <div class="order-item${soldOut ? ' sold-out' : ''}">
+      <div class="order-item-info">
+        <div class="order-item-name">${it.name}${soldOut ? ' <span class="sold-out-tag">Sold Out</span>' : ''}</div>
+        <div class="order-item-sub">${it.dietary || ''}${stock > 0 ? `${it.dietary ? ' · ' : ''}<span class="stock-remaining">${stock} left</span>` : ''}</div>
+      </div>
+      <div class="order-item-price">$${it.price}</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${i},-1)" ${soldOut?'disabled':''}>−</button>
+        <span class="qty-val" id="qty-${i}">0</span>
+        <button class="qty-btn" onclick="changeQty(${i},1)" ${soldOut?'disabled':''}>+</button>
+      </div>
+    </div>`;
+  }).join('');
+  updateTotal();
+}
+
+function changeQty(i, d) {
+  const stock = data.items[i].stock || 0;
+  const max = stock > 0 ? stock : Infinity;
+  qtys[i] = Math.min(max, Math.max(0, qtys[i]+d));
+  document.getElementById('qty-'+i).textContent = qtys[i];
+  updateTotal();
+}
+
+function updateTotal() {
+  const total = data.items.reduce((s,it,i) => s + it.price*qtys[i], 0);
+  const lines = data.items.filter((_,i) => qtys[i]>0).map((it,i) => `${it.name} ×${qtys[i]}`);
+  document.getElementById('running-total').textContent = '$' + total;
+  document.getElementById('total-items-summary').textContent = lines.length
+    ? lines.join(', ')
+    : 'No items selected yet';
+}
+
+function updateDayOptions() {
+  document.getElementById('f-day').innerHTML =
+    `<option value="">— Select a day —</option>
+     <option value="${data.satOption}">${data.satOption}</option>
+     <option value="${data.sunOption}">${data.sunOption}</option>`;
+}
+
+// ── ARCHIVE ──────────────────────────────────────────
+function renderArchive() {
+  const el = document.getElementById('archive-list');
+  if (!data.archive.length) {
+    el.innerHTML='<div class="archive-card"><span style="color:var(--text-faint);font-size:13px">No past sales yet — check back soon!</span></div>'; return;
+  }
+  el.innerHTML = [...data.archive].reverse().map(a=>`
+    <div class="archive-card">
+      <span class="archive-date">${a.date}</span>
+      <div class="archive-info">
+        <div class="archive-name">${a.name}</div>
+        <div class="archive-items-list">${a.items}</div>
+      </div>
+      ${a.raised ? `<span class="archive-raised">$${a.raised} raised ✦</span>` : ''}
+    </div>`).join('');
+}
+
+// ── SUBMIT ───────────────────────────────────────────
+async function submitOrder() {
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const day     = document.getElementById('f-day').value;
+  const address = fulfillment === 'delivery' ? document.getElementById('f-address').value.trim() : 'Pickup';
+  const notes   = document.getElementById('f-notes').value.trim();
+  const selected = data.items.filter((_,i) => qtys[i]>0);
+  if (!name||!email||!day||!selected.length) {
+    showStatus('Please fill in all required fields and select at least one item.','error'); return;
+  }
+  if (fulfillment === 'delivery' && !address) {
+    showStatus('Please enter your delivery address.','error'); return;
+  }
+  const orderLines = data.items.filter((_,i)=>qtys[i]>0).map((it,i)=>`${it.name} ×${qtys[i]} ($${it.price*qtys[i]})`);
+  const total = data.items.reduce((s,it,i)=>s+it.price*qtys[i],0);
+  const btn = document.getElementById('submit-btn');
+  btn.disabled=true; btn.textContent='Sending…';
+
+  try {
+    if (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email:'orders@towardssolidarity.com',
+        customer_name:name, customer_email:email,
+        delivery_day:day, address, order:orderLines.join('\n'),
+        total:'$'+total, notes:notes||'None'
+      });
+    }
+    if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+      await fetch(SHEETS_URL, {
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,email,day,address,order:orderLines.join(', '),total,notes})
+      });
+    }
+    showStatus(`✦ Order received! Send $${total} to @johnniecakes on Venmo with your name in the memo. Confirmation email coming shortly!`,'success');
+    btn.textContent='Order Sent! ✦';
+    qtys.fill(0);
+    data.items.forEach((_,i)=>{ const e=document.getElementById('qty-'+i); if(e) e.textContent=0; });
+    updateTotal();
+  } catch(e) {
+    showStatus('Something went wrong. Please email orders@towardssolidarity.com directly.','error');
+    btn.disabled=false; btn.textContent='Submit Order ✦';
+  }
+}
+
+function showStatus(msg, type) {
+  const el = document.getElementById('form-status');
+  el.textContent=msg; el.className='form-status '+type; el.style.display=msg?'block':'none';
+}
+
+// ── ADMIN ────────────────────────────────────────────
+function openAdmin() { document.getElementById('admin-overlay').classList.add('open'); }
+function closeAdmin() {
+  document.getElementById('admin-overlay').classList.remove('open');
+  document.getElementById('admin-login').style.display='';
+  document.getElementById('admin-panel').classList.remove('visible');
+  document.getElementById('admin-pw').value='';
+  document.getElementById('admin-err').textContent='';
+}
+document.getElementById('admin-overlay').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeAdmin(); });
+
+function checkPw() {
+  if (document.getElementById('admin-pw').value===ADMIN_PASSWORD) {
+    document.getElementById('admin-login').style.display='none';
+    document.getElementById('admin-panel').classList.add('visible');
+    loadAdminPanel();
+  } else {
+    document.getElementById('admin-err').textContent='Incorrect password.';
+  }
+}
+
+function loadAdminPanel() {
+  document.getElementById('admin-sale-label').value = data.saleLabel;
+  document.getElementById('admin-sale-open').value = data.saleOpen || '';
+  document.getElementById('admin-sale-cutoff').value = data.saleCutoff || '';
+  document.getElementById('admin-sat').value = data.satOption;
+  document.getElementById('admin-sun').value = data.sunOption;
+  renderAdminItems();
+}
+
+function renderAdminItems() {
+  document.getElementById('admin-items-list').innerHTML = data.items.map((it,i)=>`
+    <div class="admin-item" draggable="true" data-index="${i}" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <input type="text" value="${it.name}" placeholder="Item name" data-i="${i}" data-f="name" oninput="updateItem(this)" />
+      <input type="number" class="price-input" value="${it.price}" data-i="${i}" data-f="price" oninput="updateItem(this)" />
+      <input type="number" class="stock-input" value="${it.stock||0}" min="0" data-i="${i}" data-f="stock" oninput="updateItem(this)" title="Available quantity (0 = unlimited)" />
+      <input type="text" class="dietary-input" value="${it.dietary}" placeholder="GF, Vegan…" data-i="${i}" data-f="dietary" oninput="updateItem(this)" />
+      <label style="font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:4px;white-space:nowrap">
+        <input type="checkbox" ${it.sample?'checked':''} data-i="${i}" data-f="sample" onchange="updateItem(this)" /> Sample
+      </label>
+      <button class="admin-del" onclick="deleteItem(${i})">Remove</button>
+      <input type="text" class="admin-item-desc" value="${it.desc}" placeholder="Description…" data-i="${i}" data-f="desc" oninput="updateItem(this)" />
+    </div>`).join('');
+}
+
+let fulfillment = 'pickup';
+
+function setFulfillment(type) {
+  fulfillment = type;
+  document.getElementById('btn-pickup').classList.toggle('active', type === 'pickup');
+  document.getElementById('btn-delivery').classList.toggle('active', type === 'delivery');
+  document.getElementById('address-field').style.display = type === 'delivery' ? '' : 'none';
+}
+
+
+
+function dragStart(e) {
+  dragSrcIndex = +e.currentTarget.dataset.index;
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+
+function dragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.admin-item').forEach(el => el.classList.remove('drag-over'));
+  e.currentTarget.classList.add('drag-over');
+}
+
+function dragDrop(e) {
+  e.preventDefault();
+  const targetIndex = +e.currentTarget.dataset.index;
+  if (dragSrcIndex === null || dragSrcIndex === targetIndex) return;
+  const moved = data.items.splice(dragSrcIndex, 1)[0];
+  data.items.splice(targetIndex, 0, moved);
+  renderAdminItems();
+}
+
+function dragEnd(e) {
+  document.querySelectorAll('.admin-item').forEach(el => {
+    el.classList.remove('dragging');
+    el.classList.remove('drag-over');
+  });
+  dragSrcIndex = null;
+}
+
+function updateItem(el) {
+  const i=+el.dataset.i, f=el.dataset.f;
+  if(f==='sample') data.items[i][f]=el.checked;
+  else if(f==='price'||f==='stock') data.items[i][f]=+el.value;
+  else data.items[i][f]=el.value;
+}
+
+function addAdminItem() {
+  data.items.push({name:'New Item',desc:'',dietary:'',price:10,stock:0,sample:false});
+  renderAdminItems();
+}
+
+function deleteItem(i) {
+  if(!confirm('Remove this item?')) return;
+  data.items.splice(i,1); renderAdminItems();
+}
+
+function addArchive() {
+  const date=document.getElementById('arc-date').value.trim();
+  const name=document.getElementById('arc-name').value.trim();
+  const items=document.getElementById('arc-items').value.trim();
+  const raised=+document.getElementById('arc-raised').value;
+  if(!date||!name){alert('Date and name required.');return;}
+  data.archive.push({date,name,items,raised});
+  ['arc-date','arc-name','arc-items','arc-raised'].forEach(id=>document.getElementById(id).value='');
+  alert('Past sale added! Hit Save & Publish to make it live.');
+}
+
+function saveAll() {
+  data.saleLabel=document.getElementById('admin-sale-label').value;
+  data.saleOpen=document.getElementById('admin-sale-open').value;
+  data.saleCutoff=document.getElementById('admin-sale-cutoff').value;
+  data.satOption=document.getElementById('admin-sat').value;
+  data.sunOption=document.getElementById('admin-sun').value;
+  persist(); renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
+  updateStatusBar();
+  document.getElementById('hero-dates').textContent = data.satOption + ' + ' + data.sunOption;
+  alert('Saved and live!'); closeAdmin();
+}
+
+function exportData() {
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='heavyhanded-data.json'; a.click();
+}
+
+function importData(e) {
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{ try{ data=JSON.parse(ev.target.result); persist(); loadAdminPanel(); alert('Imported!'); }catch{ alert('Invalid JSON.'); } };
+  r.readAsText(file);
+}
+
+function updateStatusBar() {
+  document.getElementById('pill-open').textContent = data.saleOpen || '—';
+  document.getElementById('pill-cutoff').textContent = data.saleCutoff || '—';
+  document.getElementById('pill-dates').textContent = data.satOption + ' & ' + data.sunOption;
+}
+
+// ── INIT ─────────────────────────────────────────────
+renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
+updateStatusBar();
+document.getElementById('hero-dates').textContent = data.satOption + ' + ' + data.sunOption;
+</script>
+
+<!--
+════════════════════════════════════════════════════════
+  SETUP README
+════════════════════════════════════════════════════════
+
+1. EMAILJS — sends order emails to orders@towardssolidarity.com
+   a. Sign up free at https://www.emailjs.com
+   b. Add Email Service → connect your Gmail account
+   c. Create a Template. Use these variables in the body:
+        {{customer_name}}, {{customer_email}}, {{delivery_day}},
+        {{address}}, {{order}}, {{total}}, {{notes}}
+      Set "To Email" to: orders@towardssolidarity.com
+   d. Fill in EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID above
+
+2. GOOGLE SHEETS — logs every order automatically
+   a. Create a new Google Sheet
+   b. Extensions → Apps Script → paste this:
+
+      function doPost(e) {
+        var s = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var d = JSON.parse(e.postData.contents);
+        s.appendRow([new Date(),d.name,d.email,d.day,d.address,d.order,'$'+d.total,d.notes]);
+        return ContentService.createTextOutput('ok');
+      }
+
+   c. Deploy → New deployment → Web App
+      Execute as: Me | Who has access: Anyone → Deploy
+   d. Copy the Web App URL → paste as SHEETS_URL above
+
+3. CHANGE THE ADMIN PASSWORD before publishing!
+
+4. DEPLOY TO NETLIFY
+   Drag this index.html to https://app.netlify.com/drop → instant live URL!
+
+════════════════════════════════════════════════════════
+-->
+</body>
+</html>
