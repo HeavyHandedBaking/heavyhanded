@@ -571,8 +571,8 @@ footer strong{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-
           </div>
         </div>
         <div>
-          <button class="admin-btn" onclick="saveAll()">Save & Publish ✦</button>
-          <p class="admin-save-note">Saves to browser storage. Export JSON to back up or transfer to another device.</p>
+          <button class="admin-btn" onclick="saveAll()">Download Updated Site ✦</button>
+          <p class="admin-save-note">Downloads a new index.html with your changes baked in. Upload it to GitHub to publish to everyone.</p>
           <br><br>
           <button class="admin-btn secondary" onclick="exportData()">Export JSON</button>
           &nbsp;
@@ -884,10 +884,25 @@ function saveAll() {
   data.saleCutoff=document.getElementById('admin-sale-cutoff').value;
   data.satOption=document.getElementById('admin-sat').value;
   data.sunOption=document.getElementById('admin-sun').value;
-  persist(); renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
+
+  // Get the current page HTML and replace the DEFAULT data block with updated data
+  const currentHTML = document.documentElement.outerHTML;
+  const newDefault = `const DEFAULT = ${JSON.stringify(data, null, 2)};`;
+  const updated = currentHTML.replace(/const DEFAULT = \{[\s\S]*?\};\n\n\/\/ Always use DEFAULT/, newDefault + '\n\n// Always use DEFAULT');
+
+  const blob = new Blob([updated], {type: 'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'index.html';
+  a.click();
+
+  // Also update live preview
+  renderMenu(); renderOrderItems(); renderArchive(); updateDayOptions();
   updateStatusBar();
   document.getElementById('hero-dates').textContent = data.satOption + ' + ' + data.sunOption;
-  alert('Saved and live!'); closeAdmin();
+
+  closeAdmin();
+  alert('✦ index.html downloaded! Upload it to GitHub to publish your changes to everyone.');
 }
 
 function exportData() {
